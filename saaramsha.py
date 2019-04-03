@@ -1,3 +1,4 @@
+from __future__ import print_function
 from summarizer import summarizer
 import os
 import sys
@@ -5,8 +6,8 @@ import sys
 from flask import Flask
 from flask import request
 
-app = Flask(__name__)
-@app.route('/summarize')
+application = Flask(__name__)
+@application.route('/summarize')
 def summarize():
     if request.method == 'POST':
         f = request.files['document']
@@ -24,7 +25,7 @@ def exec_cmd(cmdstr, echo=True):
 def main():
     print('Running flask')
     #exec_cmd('export FLASK_APP=run_flask.py flask run &')
-    app.run(host='0.0.0.0')
+    application.run(host='0.0.0.0')
 
 
 if __name__ == "__main__":
