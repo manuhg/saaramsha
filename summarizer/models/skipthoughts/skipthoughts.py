@@ -18,7 +18,7 @@ from nltk.tokenize import word_tokenize
 profile = False
 
 
-def load_model(path_to_model_data='models/skipthoughts/models/'):
+def load_model(path_to_model_data='summarizer/models/skipthoughts/models/'):
     global path_to_models, path_to_tables, path_to_umodel, path_to_bmodel
     path_to_umodel = path_to_model_data + 'uni_skip.npz'
     path_to_bmodel = path_to_model_data + 'bi_skip.npz'

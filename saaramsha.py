@@ -6,7 +6,7 @@ import sys
 from flask import Flask
 from flask import request
 
-s = summarizer()
+s = summarizer.summarizer()
 s.load()
 
 application = Flask(__name__)
