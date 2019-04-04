@@ -19,7 +19,7 @@ def summarize():
     if request.method == 'POST':
         print("hello2")
         f = request.form['document']
-        return 'Helo'
+        return s.summarize(f)
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
 
 
