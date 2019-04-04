@@ -1,6 +1,4 @@
 from models import summarizer_sk
-
-
 class summarizer:
     def __init__(self, model=''):
         pass
