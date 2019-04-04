@@ -1,4 +1,4 @@
-from models import skipthoughts
+from models import summarizer_sk
 
 
 class summarizer:
@@ -6,8 +6,9 @@ class summarizer:
         pass
 
     def load(self):
-        pass
+        summarizer_sk.load_model()
 
     def summarize(self, document_str):
-        summary = document_str  # ''
-        return summary
+        documents = [document_str]  # can send multiple documents at once
+        # returned variable is an array since if multiple docs are sent
+        return summarizer_sk(documents)[0]

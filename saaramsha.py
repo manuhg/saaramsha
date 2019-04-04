@@ -6,14 +6,15 @@ import sys
 from flask import Flask
 from flask import request
 
+s = summarizer()
+s.load()
+
 application = Flask(__name__)
 @application.route('/summarize')
 def summarize():
     if request.method == 'POST':
         f = request.files['document']
-        s = summarizer()
-        s.load()
-        return s.summarize()
+        return s.summarize(f)
 
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
 
