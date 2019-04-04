@@ -11,4 +11,4 @@ class summarizer:
     def summarize(self, document_str):
         documents = [document_str]  # can send multiple documents at once
         # returned variable is an array since if multiple docs are sent
-        return summarizer_sk(documents)[0]
+        return summarizer_sk.summarize(documents)[0]
