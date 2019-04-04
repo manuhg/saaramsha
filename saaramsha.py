@@ -26,7 +26,7 @@ def exec_cmd(cmdstr, echo=True):
 def main():
     print('Running flask')
     #exec_cmd('export FLASK_APP=run_flask.py flask run &')
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0', threaded=True)
 
 
 if __name__ == "__main__":
