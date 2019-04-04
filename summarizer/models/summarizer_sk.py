@@ -1,6 +1,4 @@
 import numpy as np
-from talon.signature.bruteforce import extract_signature
-from langdetect import detect
 from nltk.tokenize import sent_tokenize
 from skipthoughts import skipthoughts
 from sklearn.cluster import KMeans
@@ -21,8 +19,7 @@ def load_model():
 def preprocess(docs):
     n_docs = len(docs)
     for i in range(n_docs):
-        doc = docs[i]
-        doc, _ = extract_signature(doc)
+        doc = docs[i].strip()
         lines = doc.split('\n')
         for j in reversed(range(len(lines))):
             lines[j] = lines[j].strip()
@@ -82,8 +79,8 @@ def summarize(docs):
         for j in range(n_clusters):
             idx = np.where(kmeans.labels_ == j)[0]
             avg.append(np.mean(idx))
-        closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_,
-                                                   enc_doc)
+        closest, _ = pairwise_distances_argmin_min(
+            kmeans.cluster_centers_, enc_doc)
         ordering = sorted(range(n_clusters), key=lambda k: avg[k])
         summary[i] = ' '.join([docs[i][closest[idx]] for idx in ordering])
     print('Done')
