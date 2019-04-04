@@ -3,7 +3,7 @@ from summarizer import summarizer
 from flask_cors import CORS
 import os
 import sys
-
+from flask import jsonify
 from flask import Flask
 from flask import request
 
@@ -15,11 +15,11 @@ CORS(application)
 
 @application.route('/summarize',methods=['GET','POST'])
 def summarize():
-    print("hello1", request)
     if request.method == 'POST':
-        print("hello2")
         f = request.form['document']
-        return s.summarize(f)
+        result = s.summarize(f)
+        dict = {'data': result}
+        return jsonify(dict);
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
 
 
