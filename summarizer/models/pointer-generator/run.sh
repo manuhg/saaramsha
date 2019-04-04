@@ -1,0 +1,1 @@
+python run_summarization.py --mode=decode --data_path=cnn_dm/chunked/val_* --vocab_path=cnn_dm/vocab --log_root=log --exp_name=tldr

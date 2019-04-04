@@ -1,3 +1,6 @@
+from models import skipthoughts
+
+
 class summarizer:
     def __init__(self, model=''):
         pass
