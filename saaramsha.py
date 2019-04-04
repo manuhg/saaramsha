@@ -10,7 +10,7 @@ s = summarizer.summarizer()
 s.load()
 
 application = Flask(__name__)
-@application.route('/summarize')
+@application.route('/summarize',methods=['GET','POST'])
 def summarize():
     if request.method == 'POST':
         f = request.files['document']
