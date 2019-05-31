@@ -1,9 +1,7 @@
 server {
     listen 80;
-    server_name tldr cloud.tldr.cool;
-
+    server_name cloud.tldr.cool;
     location / {
-        include proxy_params;
-        proxy_pass http://127.0.0.1:8000;
-    }
+        proxy_pass http://localhost:8000/;
+  }
 }
