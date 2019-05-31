@@ -1,12 +1,13 @@
+import os
+from time import time
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.metrics import pairwise_distances_argmin_min
 from nltk.tokenize import sent_tokenize
 import tensorflow as tf
 import tensorflow_hub as hub
-from time import time
 import spacy
-import os
+
 
 class summarizer:
     def __init__(self, encoder_name=None):
