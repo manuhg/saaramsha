@@ -14,7 +14,9 @@ application = Flask(__name__)
 def summarize():
     if request.method == 'POST':
         f = request.files['document']
-        return s.summarize(f)
+        enc = request.files.get('encoder_name')
+        encoder_name = 'USE' if enc is None else enc
+        return s.summarize(f,encoder_name)
 
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
 
