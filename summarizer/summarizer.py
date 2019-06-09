@@ -23,16 +23,16 @@ class summarizer:
         nltk.download('punkt');
         print(os.popen('pip install -q tensorflow_hub').read())
         print(os.popen('pip install -q spacy').read())
-        print(os.popen('python -m spacy download en_core_web_lg').read())
+        print(os.popen('python -m spacy download en_core_web_md').read())
 
     def load_encoders(self):
         print('Loading sentence encoders...')
         if self.encoder_name=='spacy':
-            self.nlp = spacy.load('en_core_web_lg')
+            self.nlp = spacy.load('en_core_web_md')
         elif self.encoder_name=='USE':
             self.universal_sent_encoder = hub.Module("https://tfhub.dev/google/universal-sentence-encoder-large/3")
         else:
-            self.nlp = spacy.load('en_core_web_lg')
+            self.nlp = spacy.load('en_core_web_md')
             self.universal_sent_encoder = hub.Module("https://tfhub.dev/google/universal-sentence-encoder-large/3")
 
     def load(self):
