@@ -16,10 +16,9 @@ CORS(application)
 def summarize():
     if request.method == 'POST':
         f = request.form['document']
-        enc = None# request.files.get('encoder_name')
-        encoder_name = 'USE' if enc is None else enc
-        return s.summarize(f,encoder_name)
-        result = s.summarize(f)
+        #enc = None request.files.get('encoder_name')
+        encoder_name = 'USE' #if enc is None else enc
+        result = s.summarize(f,encoder_name)
         dict = {'data': result}
         return jsonify(dict);
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
