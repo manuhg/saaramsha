@@ -6,3 +6,4 @@ nltk
 spacy
 tensorflow
 tensorflow_hub
+flask_cors

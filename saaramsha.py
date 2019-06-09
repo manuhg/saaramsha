@@ -1,23 +1,28 @@
-#from __future__ import print_function
+from __future__ import print_function
 from summarizer import summarizer
+from flask_cors import CORS
 import os
 import sys
-
+from flask import jsonify
 from flask import Flask
 from flask import request
 
-s = summarizer()
+s = summarizer.summarizer()
 s.load()
 
 application = Flask(__name__)
-@application.route('/summarize')
+CORS(application)
+
+@application.route('/summarize',methods=['GET','POST'])
 def summarize():
     if request.method == 'POST':
-        f = request.files['document']
-        enc = request.files.get('encoder_name')
+        f = request.form['document']
+        enc = None# request.files.get('encoder_name')
         encoder_name = 'USE' if enc is None else enc
         return s.summarize(f,encoder_name)
-
+        result = s.summarize(f)
+        dict = {'data': result}
+        return jsonify(dict);
     return 'ONLY POST REQUESTS ARE SUPPORTED!'
 
 
