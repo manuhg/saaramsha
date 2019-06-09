@@ -1,4 +1,3 @@
-from __future__ import print_function
 from summarizer import summarizer
 from flask_cors import CORS
 import os
