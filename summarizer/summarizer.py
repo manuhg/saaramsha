@@ -19,9 +19,11 @@ class summarizer:
     
     def setup_env(self):
         print('Setting up env... ')
+        import nltk
+        nltk.download('punkt');
         print(os.popen('pip install -q tensorflow_hub').read())
         print(os.popen('pip install -q spacy').read())
-        print(os.popen('python -m spacy download en_core_web_md').read())
+        print(os.popen('python -m spacy download en_core_web_lg').read())
 
     def load_encoders(self):
         print('Loading sentence encoders...')
