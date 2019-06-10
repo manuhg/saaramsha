@@ -1,4 +1,0 @@
-embeddings {
-  tensor_name: "seq2seq/embedding/embedding:0"
-  metadata_path: "log/tldr/train/vocab_metadata.tsv"
-}
